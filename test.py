@@ -142,7 +142,7 @@ def infer(arch, rec, lie):
     use_rec = 'rec-o' if rec else 'rec-x'
     if args.map_viz:
         os.makedirs(os.path.join('viz_result', f'{arch}_{use_rec}_{use_lie}'), exist_ok=True)
-    ckpt = torch.load(f'./weight/fixed/mergenet_{arch}_{use_lie}_{use_rec}.pth')
+    ckpt = torch.load(f'./weight/mergenet_{arch}_{use_lie}_{use_rec}.pth')
     args_load = ckpt['args']
     if arch == 'cnn':
         model = MapCNN()

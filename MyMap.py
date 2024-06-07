@@ -17,7 +17,7 @@ class MyMapDataset(Dataset):
 
         self.test = test
         if self.test:
-            self.root_path = os.path.join(os.getcwd(), 'MyMap, test')
+            self.root_path = os.path.join(os.getcwd(), 'MyMap', 'test')
         else:
             self.root_path = os.path.join(os.getcwd(), 'MyMap', 'train')
         name_list = os.listdir(self.root_path)

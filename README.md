@@ -45,7 +45,7 @@ Set `map_viz` and `plot_viz` to visualize aligned maps and figure result in the 
 
 Download every file and unzip `MyMap.zip` in a working directory. Weight files are provided to reproduce the reported result in the paper.
 ```
-MyMap.zip   # 30390 pairs in the training set, 497 pairs of images in the test set
+MyMap.zip   # 30391 pairs in the training set, 357 pairs of images in the test set
 ├── train
 │   ├── 0_cam.png
 │   ├── 0_tar.png

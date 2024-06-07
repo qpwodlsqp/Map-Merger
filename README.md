@@ -2,7 +2,7 @@
 [[Paper Link]](https://ieeexplore.ieee.org/abstract/document/10161072)
 ## About
 This repository contains the following contents:
-* the implementation of Frame-Error-Estimator from the paper, which aligns the origins of two occupancy grid maps.
+* the implementation of Frame-Error-Estimator from the paper, which aligns the origins of two occupancy grids.
   
 * the custom dataset and model weight files to train models and reproduce the results.
   

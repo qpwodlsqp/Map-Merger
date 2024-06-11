@@ -7,7 +7,6 @@ import torchvision.transforms as transforms
 import torchvision.transforms.functional as TF
 import cv2
 
-from scipy.stats import gaussian_kde
 from torch.utils.data import Dataset
 from torch.utils.data import DataLoader
 
@@ -30,7 +29,7 @@ class MyMapDataset(Dataset):
             assert cam_name.split('_')[0] == tar_name.split('_')[0]
             self.idx_list.append(cam_name.split('_')[0])
 
-        # Kernel Density 
+        # Kernel Density # DEPRECATED
         loc_x_list = []
         loc_y_list = []
         yaw_list = []
@@ -131,32 +130,5 @@ class MyMap:
                                      worker_init_fn = seed_worker,
                                      generator = g)
         return
-
-
-
-
-if __name__ == '__main__':
-
-    from lie_util import *
-    mymap = MyMap(batch=2)
-    dataloader = mymap.dataloader
-
-    print(mymap.dataset.COVAR)
-    print(np.linalg.pinv(mymap.dataset.COVAR))
-    '''
-    for i, data in enumerate(dataloader, 0):
-        cam, tar, tar_tilde, pose_delta = data
-        print(pose_delta)
-        alg = target_to_algebra(pose_delta)
-        print(alg)
-        group = exp_map(alg)
-        print(group)
-        alg_back = log_map(group)
-        print(alg_back)
-        print(lie_loss(alg_back, alg, torch.eye(3)))
-        print(algebra_to_target(alg))
-        print(algebra_to_target(alg_back))
-        break
-    '''
 
 

@@ -8,7 +8,7 @@ This repository contains the following contents:
   
 * the implementation of the baseline method from [*Fast and accurate map merging for multi-robot systmes*](https://link.springer.com/article/10.1007/s10514-008-9097-4).
 
-The implementation of Vision Transformer is cloned from [lucidrains](https://github.com/lucidrains/vit-pytorch) and modified to only return encoded features.
+The implementation of Vision Transformer (`vit_pytorch/`) is cloned from [lucidrains](https://github.com/lucidrains/vit-pytorch) and modified to only return encoded features.
 
 ## Installation & Dependencies
 * **Model dependencies**
@@ -55,14 +55,14 @@ MyMap.zip   # 30391 pairs in the training set, 357 pairs of images in the test s
 │   ├── 0_tar.png
 │   ├── ...
 weight
-├── mergenet_cnn_lie-x_rec-x.pth
-├── mergenet_cnn_lie-o_rec-x.pth
-├── mergenet_cnn_lie-x_rec-o.pth
-├── mergenet_cnn_lie-o_rec-o.pth
-├── mergenet_vit_lie-x_rec-x.pth
-├── mergenet_vit_lie-o_rec-x.pth
-├── mergenet_vit_lie-x_rec-o.pth
-└── mergenet_vit_lie-o_rec-o.pth
+├── mergenet_cnn_rec-x_lie-x.pth
+├── mergenet_cnn_rec-x_lie-o.pth
+├── mergenet_cnn_rec-o_lie-x.pth
+├── mergenet_cnn_rec-o_lie-o.pth
+├── mergenet_vit_rec-x_lie-x.pth
+├── mergenet_vit_rec-x_lie-o.pth
+├── mergenet_vit_rec-o_lie-x.pth
+└── mergenet_vit_rec-o_lie-o.pth
 ```
 
 ## Citation

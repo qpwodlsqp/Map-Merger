@@ -13,6 +13,7 @@ from tqdm import tqdm
 import argparse
 import datetime
 import os
+import shutil
 
 
 parser = argparse.ArgumentParser(description='Map Transformer',
@@ -160,6 +161,18 @@ def train():
                         'model_state_dict': merger_net.state_dict(),
                         'optimizer_state_dict': optimizer.state_dict(),
                        }, os.path.join('result', nick, f"merger_net_{epoch+1}.pth"))
+
+    torch.save({
+                'args': args,
+                'model_state_dict': merger_net.state_dict(),
+                'optimizer_state_dict': optimizer.state_dict(),
+               }, os.path.join('result', nick, f"merger_net_last.pth"))
+    # Copy the parameters of last epoch to weight directory
+    os.makedirs(os.path.join(os.getcwd(), 'weight'), exist_ok=True)
+    rec_nick = 'rec-o' if args.use_rec_loss else 'rec-x'
+    lie_nick   = 'lie-o' if args.use_lie_regress else 'lie-x'
+    weight_file_name = f'mergernet_{args.model_type}_{rec_nick}_{lie_nick}.pth'
+    shutil.copy(os.path.join('result', nick, f"merger_net_last.pth"), os.path.join('weight', weight_file_name))
     return
 
 

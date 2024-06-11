@@ -30,15 +30,25 @@ foo@bar:~$ git clone https://github.com/qpwodlsqp/Map-Merger.git
 
 foo@bar:~$ cd Map-Merger
 
-foo@bar:~/Map-Merger$ unzip MyMap.zip                                                     # download dataset from the link below
+foo@bar:~/Map-Merger$ unzip MyMap.zip                                                     # download dataset first from the link below
 
 foo@bar:~/Map-Merger$ python train.py --model_type vit --use_lie_regress --use_rec_loss   # train model variants
 
 foo@bar:~/Map-Merger$ python test.py --map_viz --plot_viz                                 # test baseline method and variants
 ```
-Set `model_type`, `use_lie_regress`, and `use_rec_loss` to configure model variants.
+* Model configuration options for `train.py`
+  * `model_type`: A type of encoder backbone. Choose among [vit, cnn].
+  * `use_lie_regress`: Set this option to configure the output domain to *so(2)*.
+  * `use_rec_loss`: Set this option to use regularization loss by recursive inputs.
 
-Set `map_viz` and `plot_viz` to visualize aligned maps and figure result in the paper.
+* Additional visualization options for `test.py`
+  * `map_viz`: Create `viz_result/` under the working directory and store maps merged by a model.
+  * `plot_viz`: Draw the scatter plot to compare the baseline and ours.
+
+After the training is finished, it creates `weight` directory and saves its weight file from the last epoch.
+The name of weight file is determined by the model configuration: `mergenet_{model_type}_{use_rec_loss}_{use_lie_regress}.pth`.
+Also, `test.py` code requires the `weight` directory and every 8 weight files of each variant,
+so please download the weight file from the below to execute `test.py`.
 
 ## Dataset & Weight
 * [[Google Drive Link]](https://drive.google.com/drive/folders/12eSXxTzi4RXTpjUzEyktL441LHIsjnEI?usp=drive_link)

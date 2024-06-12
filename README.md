@@ -38,7 +38,7 @@ foo@bar:~/Map-Merger$ python test.py --map_viz --plot_viz                       
 ```
 * Model configuration options for `train.py`
   * `model_type`: A type of encoder backbone. Choose among [vit, cnn].
-  * `use_lie_regress`: Set this option to configure the output domain to *so(2)*.
+  * `use_lie_regress`: Set this option to configure the output domain to *se(2)*.
   * `use_rec_loss`: Set this option to use regularization loss by recursive inputs.
 
 * Additional visualization options for `test.py`
